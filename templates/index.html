@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Image classification</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+<form action="/upload" method="post" enctype="multipart/form-data" >
+
+    <label class="btn btn-default btn-file">
+
+        Browse <input <input type="file" name="image" style="display: none;">
+
+    </label>
+
+    <input type="submit" value="Upload your image" class="btn btn-primary">
+
+</form>
+
+<h1> About Dataset </h2>
+
+<h3>Context </h3>
+<p>This dataset contains 1200 images of flowers. The data collection is based on the data flicr, google images, yandex images. You can use this datastet to recognize plants from the photo.</p>
+<h3>Content</h3>
+<p>The pictures are divided into five classes: chamomile, tulip, rose, sunflower, dandelion. For each class there are about 200 photos. Photos are not high resolution, about 320x240 pixels. Photos are not reduced to a single size, they have different proportions! </p>
+<h3>Acknowledgements </h3>
+<p>The data collection is based on scraped data from flickr, google images, and yandex images.</p>
+
+<h1> About CNN model</h1>
+
+<p> Currently, model is train for 120 epoch with training dataset ,200 images for each catefory and achieve training accuracy of 100% means model can recognize training dataset with 100% accuracy. While validatation dataset,length of 100 images, gives validation accuracy of model 68%</p>
+<h3> how to improve model accuracy :</h3>
+<ul style="list-style-type:circle;">
+  <li>Here model is suffer from higher variance, because model training accuracy is 100% while validation accuracy is 68% percent. It works fine for training data but failed to newly unseen data.</li>
+  <li>One way to reduce variance is use large training dataset. here model trained on small size of dataset(200 for each categories).large dataset require more computation and longer times to train model.</li>
+  <li>Tuning hyper parameter of network can improve model performance.For example set large number of epoch, right choice of optimizer(SGD,rmsprop) and learning rate.</li>
+  <li>Use image augmentation. using zoom,rotation and shear functionalities on existing sample and generate more examples so model can learn these new features and gives better performance</li>
+  <li>change network topology. use wide network so cnn model can capture more abtract features </li>
+  <li>Use cross validation to avoid overfitting problem</li>
+</ul>  
+
+
+
+</body>
+
+</html>
